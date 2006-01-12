@@ -13,11 +13,15 @@ License:	PHP License
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}beta.tgz
 # Source0-md5:	59ec155424b1b06e44cdbafe39093dad
+Patch0:		%{name}-paths.patch
 URL:		http://pear.php.net/package/XML_Feed_Parser/
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 Requires:	php-pear
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+# files not distributed (bug reported)
+%define _noautoreq 'pear(XML/Feed/Parser/RSS11.php)' 'pear(XML/Feed/Parser/RSS11Element.php)'
 
 %description
 XML_Feed_Parser is a parser for (the various) RSS and ATOM format XML
@@ -49,6 +53,7 @@ Testy dla PEAR::%{_pearname}.
 
 %prep
 %pear_package_setup
+%patch0 -p1
 
 %install
 rm -rf $RPM_BUILD_ROOT
