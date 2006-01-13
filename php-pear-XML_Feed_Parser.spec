@@ -32,7 +32,7 @@ In PEAR status of this package is: %{_status}.
 
 %description -l pl
 XML_Feed_Parser jest parserem dla (ró¿nych) formatów XML ¼róde³ RSS i
-ATOM. Klasa ta stara siê dostarczyc zunifikowanego API przy
+ATOM. Klasa ta stara siê dostarczyæ zunifikowanego API przy
 jednoczesnej mo¿liwo¶ci dostêpu do pe³nych informacji dotycz±cych
 ka¿dego ¼ród³a.
 
@@ -75,8 +75,8 @@ fi
 %{php_pear_dir}/.registry/*.reg
 %{php_pear_dir}/XML/Feed/Parser.php
 %{php_pear_dir}/XML/Feed/Parser
-%{php_pear_dir}/data/XML_Feed_Parser/samples/
+%{php_pear_dir}/data/XML_Feed_Parser/samples
 
 %files tests
 %defattr(644,root,root,755)
-%{php_pear_dir}/tests/XML_Feed_Parser/tests/
+%{php_pear_dir}/tests/XML_Feed_Parser/tests
