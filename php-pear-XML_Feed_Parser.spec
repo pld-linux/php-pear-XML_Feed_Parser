@@ -8,7 +8,7 @@ Summary:	%{_pearname} - unified API for handling RSS and ATOM feeds
 Summary(pl):	%{_pearname} - zunifikowane API do obs³ugi ¼róde³ RSS i ATOM
 Name:		php-pear-%{_pearname}
 Version:	0.3.0
-Release:	1
+Release:	2
 License:	PHP License
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}beta.tgz
@@ -55,6 +55,8 @@ Testy dla PEAR::%{_pearname}.
 %pear_package_setup
 %patch0 -p1
 
+mv ./%{php_pear_dir}/tests/%{_pearname}/{tests/*,}
+
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{php_pear_dir}
@@ -73,10 +75,9 @@ fi
 %doc install.log
 %doc optional-packages.txt
 %{php_pear_dir}/.registry/*.reg
-%{php_pear_dir}/XML/Feed/Parser.php
-%{php_pear_dir}/XML/Feed/Parser
-%{php_pear_dir}/data/XML_Feed_Parser/samples
+%{php_pear_dir}/XML/Feed
+%{php_pear_dir}/data/XML_Feed_Parser
 
 %files tests
 %defattr(644,root,root,755)
-%{php_pear_dir}/tests/XML_Feed_Parser/tests
+%{php_pear_dir}/tests/XML_Feed_Parser
