@@ -56,6 +56,7 @@ Testy dla PEAR::%{_pearname}.
 %patch0 -p1
 
 mv ./%{php_pear_dir}/tests/%{_pearname}/{tests/*,}
+rmdir ./%{php_pear_dir}/tests/%{_pearname}/tests
 
 %install
 rm -rf $RPM_BUILD_ROOT
