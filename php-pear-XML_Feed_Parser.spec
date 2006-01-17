@@ -9,6 +9,7 @@ Summary(pl):	%{_pearname} - zunifikowane API do obs³ugi ¼róde³ RSS i ATOM
 Name:		php-pear-%{_pearname}
 Version:	0.3.0
 Release:	2
+Epoch:		0
 License:	PHP License
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}beta.tgz
