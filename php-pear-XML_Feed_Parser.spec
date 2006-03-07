@@ -16,6 +16,7 @@ Source0:	http://pear.php.net/get/%{_pearname}-%{version}beta.tgz
 # Source0-md5:	59ec155424b1b06e44cdbafe39093dad
 Patch0:		%{name}-paths.patch
 URL:		http://pear.php.net/package/XML_Feed_Parser/
+BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 Requires:	php-pear
 BuildArch:	noarch
