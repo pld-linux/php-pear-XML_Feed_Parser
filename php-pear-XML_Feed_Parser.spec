@@ -1,20 +1,19 @@
 %include	/usr/lib/rpm/macros.php
 %define		_class		XML
 %define		_subclass	Feed_Parser
-%define		_status		beta
+%define		_status		stable
 %define		_pearname	XML_Feed_Parser
 
 Summary:	%{_pearname} - unified API for handling RSS and ATOM feeds
 Summary(pl):	%{_pearname} - zunifikowane API do obs³ugi ¼róde³ RSS i ATOM
 Name:		php-pear-%{_pearname}
-Version:	0.3.0
-Release:	2
+Version:	1.0.0
+Release:	1
 Epoch:		0
 License:	PHP License
 Group:		Development/Languages/PHP
-Source0:	http://pear.php.net/get/%{_pearname}-%{version}beta.tgz
-# Source0-md5:	59ec155424b1b06e44cdbafe39093dad
-Patch0:		%{name}-paths.patch
+Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
+# Source0-md5:	c7723e78d89e13c6cd2817392a46430b
 URL:		http://pear.php.net/package/XML_Feed_Parser/
 BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
@@ -57,7 +56,6 @@ Testy dla PEAR::%{_pearname}.
 
 %prep
 %pear_package_setup
-%patch0 -p1
 
 mv ./%{php_pear_dir}/tests/%{_pearname}/{tests/*,}
 rmdir ./%{php_pear_dir}/tests/%{_pearname}/tests
