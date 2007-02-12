@@ -5,7 +5,7 @@
 %define		_pearname	XML_Feed_Parser
 
 Summary:	%{_pearname} - unified API for handling RSS and ATOM feeds
-Summary(pl):	%{_pearname} - zunifikowane API do obs³ugi ¼róde³ RSS i ATOM
+Summary(pl.UTF-8):   %{_pearname} - zunifikowane API do obsÅ‚ugi ÅºrÃ³deÅ‚ RSS i ATOM
 Name:		php-pear-%{_pearname}
 Version:	1.0.0
 Release:	1
@@ -32,17 +32,17 @@ allowing access to the full details of each feed type.
 
 In PEAR status of this package is: %{_status}.
 
-%description -l pl
-XML_Feed_Parser jest parserem dla (ró¿nych) formatów XML ¼róde³ RSS i
-ATOM. Klasa ta stara siê dostarczyæ zunifikowanego API przy
-jednoczesnej mo¿liwo¶ci dostêpu do pe³nych informacji dotycz±cych
-ka¿dego ¼ród³a.
+%description -l pl.UTF-8
+XML_Feed_Parser jest parserem dla (rÃ³Å¼nych) formatÃ³w XML ÅºrÃ³deÅ‚ RSS i
+ATOM. Klasa ta stara siÄ™ dostarczyÄ‡ zunifikowanego API przy
+jednoczesnej moÅ¼liwoÅ›ci dostÄ™pu do peÅ‚nych informacji dotyczÄ…cych
+kaÅ¼dego ÅºrÃ³dÅ‚a.
 
 Ta klasa ma w PEAR status: %{_status}.
 
 %package tests
 Summary:	Tests for PEAR::%{_pearname}
-Summary(pl):	Testy dla PEAR::%{_pearname}
+Summary(pl.UTF-8):   Testy dla PEAR::%{_pearname}
 Group:		Development/Languages/PHP
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 AutoReq:	no
@@ -51,7 +51,7 @@ AutoProv:	no
 %description tests
 Tests for PEAR::%{_pearname}.
 
-%description tests -l pl
+%description tests -l pl.UTF-8
 Testy dla PEAR::%{_pearname}.
 
 %prep
