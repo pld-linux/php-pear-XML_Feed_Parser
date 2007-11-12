@@ -8,7 +8,7 @@ Summary:	%{_pearname} - unified API for handling RSS and ATOM feeds
 Summary(pl.UTF-8):	%{_pearname} - zunifikowane API do obsługi źródeł RSS i ATOM
 Name:		php-pear-%{_pearname}
 Version:	1.0.2
-Release:	1
+Release:	2
 Epoch:		0
 License:	PHP License
 Group:		Development/Languages/PHP
@@ -20,6 +20,7 @@ BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.300
 Requires:	php(xml)
 Requires:	php-pear
+Requires:	php-common >= 4:5.0
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
