@@ -1,22 +1,24 @@
 %include	/usr/lib/rpm/macros.php
-%define		_class		XML
-%define		_subclass	Feed_Parser
-%define		_status		beta
+%define		_status		stable
 %define		_pearname	XML_Feed_Parser
-
 Summary:	%{_pearname} - unified API for handling RSS and ATOM feeds
-Summary(pl):	%{_pearname} - zunifikowane API do obs³ugi ¼róde³ RSS i ATOM
+Summary(pl.UTF-8):	%{_pearname} - zunifikowane API do obsÅ‚ugi ÅºrÃ³deÅ‚ RSS i ATOM
 Name:		php-pear-%{_pearname}
-Version:	0.3.0
-Release:	1
+Version:	1.0.4
+Release:	2
 License:	PHP License
 Group:		Development/Languages/PHP
-Source0:	http://pear.php.net/get/%{_pearname}-%{version}beta.tgz
-# Source0-md5:	59ec155424b1b06e44cdbafe39093dad
-Patch0:		%{name}-paths.patch
+Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
+# Source0-md5:	e90563cec066e61bcbbc17a0e4a75938
 URL:		http://pear.php.net/package/XML_Feed_Parser/
+BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
+BuildRequires:	rpmbuild(macros) >= 1.300
+Requires:	php-common >= 4:5.0
 Requires:	php-pear
+Requires:	php-xml
+Suggests:	php-tidy
+Obsoletes:	php-pear-XML_Feed_Parser-tests
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -30,53 +32,37 @@ allowing access to the full details of each feed type.
 
 In PEAR status of this package is: %{_status}.
 
-%description -l pl
-XML_Feed_Parser jest parserem dla (ró¿nych) formatów XML ¼róde³ RSS i
-ATOM. Klasa ta stara siê dostarczyc zunifikowanego API przy
-jednoczesnej mo¿liwo¶ci dostêpu do pe³nych informacji dotycz±cych
-ka¿dego ¼ród³a.
+%description -l pl.UTF-8
+XML_Feed_Parser jest parserem dla (rÃ³Å¼nych) formatÃ³w XML ÅºrÃ³deÅ‚ RSS i
+ATOM. Klasa ta stara siÄ™ dostarczyÄ‡ zunifikowanego API przy
+jednoczesnej moÅ¼liwoÅ›ci dostÄ™pu do peÅ‚nych informacji dotyczÄ…cych
+kaÅ¼dego ÅºrÃ³dÅ‚a.
 
 Ta klasa ma w PEAR status: %{_status}.
 
-%package tests
-Summary:	Tests for PEAR::%{_pearname}
-Summary(pl):	Testy dla PEAR::%{_pearname}
-Group:		Development
-Requires:	%{name} = %{epoch}:%{version}-%{release}
-AutoReq:	no
-
-%description tests
-Tests for PEAR::%{_pearname}.
-
-%description tests -l pl
-Testy dla PEAR::%{_pearname}.
-
 %prep
 %pear_package_setup
-%patch0 -p1
+
+mv ./%{php_pear_dir}/tests/%{_pearname}/{tests/*,}
+rmdir ./%{php_pear_dir}/tests/%{_pearname}/tests
+
+mv .%{php_pear_dir}/data/XML_Feed_Parser/samples examples
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{php_pear_dir}
+install -d $RPM_BUILD_ROOT{%{php_pear_dir},%{_examplesdir}/%{name}-%{version}}
 %pear_package_install
+
+cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post
-if [ -f %{_docdir}/%{name}-%{version}/optional-packages.txt ]; then
-	cat %{_docdir}/%{name}-%{version}/optional-packages.txt
-fi
-
 %files
 %defattr(644,root,root,755)
 %doc install.log
-%doc optional-packages.txt
 %{php_pear_dir}/.registry/*.reg
-%{php_pear_dir}/XML/Feed/Parser.php
-%{php_pear_dir}/XML/Feed/Parser
-%{php_pear_dir}/data/XML_Feed_Parser/samples/
+%{php_pear_dir}/XML/Feed
+%{php_pear_dir}/data/XML_Feed_Parser
 
-%files tests
-%defattr(644,root,root,755)
-%{php_pear_dir}/tests/XML_Feed_Parser/tests/
+%{_examplesdir}/%{name}-%{version}
