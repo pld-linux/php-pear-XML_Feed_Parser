@@ -1,11 +1,11 @@
-%include	/usr/lib/rpm/macros.php
 %define		_status		stable
 %define		_pearname	XML_Feed_Parser
+%include	/usr/lib/rpm/macros.php
 Summary:	%{_pearname} - unified API for handling RSS and ATOM feeds
 Summary(pl.UTF-8):	%{_pearname} - zunifikowane API do obsługi źródeł RSS i ATOM
 Name:		php-pear-%{_pearname}
 Version:	1.0.5
-Release:	1
+Release:	2
 License:	PHP License
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
@@ -14,17 +14,17 @@ URL:		http://pear.php.net/package/XML_Feed_Parser/
 BuildRequires:	php-pear-PEAR >= 1:1.4.0-0.b1
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.300
+Requires:	php(xml)
 Requires:	php-common >= 4:5.0
 Requires:	php-pear
 Requires:	php-pear-Log
-Requires:	php-xml
 Suggests:	php-tidy
 Obsoletes:	php-pear-XML_Feed_Parser-tests
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 # files not distributed (bug reported)
-%define _noautoreq 'pear(XML/Feed/Parser/RSS11.php)' 'pear(XML/Feed/Parser/RSS11Element.php)'
+%define _noautoreq pear(XML/Feed/Parser/RSS11.php) pear(XML/Feed/Parser/RSS11Element.php)
 
 %description
 XML_Feed_Parser is a parser for (the various) RSS and ATOM format XML
