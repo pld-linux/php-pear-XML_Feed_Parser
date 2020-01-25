@@ -1,6 +1,5 @@
 %define		_status		stable
 %define		_pearname	XML_Feed_Parser
-%include	/usr/lib/rpm/macros.php
 Summary:	%{_pearname} - unified API for handling RSS and ATOM feeds
 Summary(pl.UTF-8):	%{_pearname} - zunifikowane API do obsługi źródeł RSS i ATOM
 Name:		php-pear-%{_pearname}
